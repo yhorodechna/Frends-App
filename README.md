@@ -1,3 +1,3 @@
-# Frends-App
+# Friends-App
 
-[demo](https://github.com/yhorodechna/Frends-App.git)
+[demo](https://yhorodechna.github.io/Friends-App/)
