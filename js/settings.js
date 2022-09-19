@@ -56,7 +56,8 @@ function onNavSortClick({ target }) {
 function onFormResetClick({ target }) {
     SETTINGS = { ...DEFAULT_SETTINGS }
     initSettings({ settings: SETTINGS, onSettingsChange: ON_SETTINGS_CHANGE })
-
+    NAV_EL.classList.remove('visible');
+    HEADER_BUTTON_EL.classList.remove('open')
 }
 
 function initSettings({ settings, onSettingsChange }) {
