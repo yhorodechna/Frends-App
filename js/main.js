@@ -1,4 +1,5 @@
 const MAIN = document.querySelector('#main');
+const PRELOADER = document.querySelector('#preloader');
 const DEFAULT_SETTINGS = {
     userName: '',
     nationalityList: [
@@ -14,9 +15,11 @@ const DEFAULT_SETTINGS = {
 
 function filterFriends({ friends, settings }) {
     let res = friends;
+
     if (settings.userName) {
         const friendNameInLowerCase = settings.userName.toLowerCase();
         res = res.filter(friend => friend.name.toLowerCase().indexOf(friendNameInLowerCase) === 0)
+
     }
     res = res.filter(friend => settings.nationalityList.includes(friend.nat))
     if (settings.gender !== EGenderFilter.all) {
@@ -36,23 +39,26 @@ function filterFriends({ friends, settings }) {
             })
         }
     }
+    if (!res.length) {
+        MAIN_EL.classList.add('no-results')
+    } else {
+        MAIN_EL.classList.remove('no-results')
+    }
     return res;
 }
 
 let FRIENDS = [];
 function onSettingsChange({ settings }) {
     const filteredFriends = filterFriends({ friends: FRIENDS, settings })
-    if (!settings.nationalityList.length) {
-        console.log('no friends')
-        MAIN_EL.classList.add('no-results')
-    } else {
-        MAIN_EL.classList.remove('no-results')
-    }
     renderFriends({ friends: filteredFriends })
 }
 initFriendsAsync({
     onFriendsLoaded: ({ friends }) => {
         FRIENDS = friends;
+        PRELOADER.classList.add('hide-preloader');
+        setInterval(function () {
+            PRELOADER.classList.add('preloader-hidden');
+        }, 990);
         initSettings({
             settings: DEFAULT_SETTINGS,
             onSettingsChange

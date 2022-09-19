@@ -6,6 +6,7 @@ const SORT_EL = document.querySelector('#nav__radio-sort');
 const FORM_RESET = document.querySelector('#nav__form-reset');
 const HEADER_BUTTON_EL = document.querySelector('#header__btn');
 const NAV_EL = document.querySelector('#nav');
+const FORM_OK = document.querySelector('#nav__form-ok');
 
 let SETTINGS = {}
 let ON_SETTINGS_CHANGE = () => { };
@@ -75,7 +76,6 @@ function initSettings({ settings, onSettingsChange }) {
     genderList.forEach(radio => {
         radio.checked = settings.gender === radio.value;
     })
-
     const sortEl = document.querySelector('#nav__radio-sort');
     const sortList = sortEl.querySelectorAll('input');
     sortList.forEach(radio => {
@@ -86,7 +86,6 @@ function initSettings({ settings, onSettingsChange }) {
 
 function onHeaderButtonClick({ target }) {
     const headerLink = target.closest('#header__btn');
-    console.log(headerLink);
     headerLink.classList.toggle('open');
     if (headerLink.classList.contains('open')) {
         NAV_EL.classList.add('visible');
@@ -94,10 +93,15 @@ function onHeaderButtonClick({ target }) {
         NAV_EL.classList.remove('visible');
     }
 }
+function onFormOkClick({target}){
+    NAV_EL.classList.remove('visible');
+    HEADER_BUTTON_EL.classList.remove('open')
+}
 
 USER_NAME_EL.addEventListener('input', onNavInputClick);
 NATIONALITY_EL.addEventListener("change", onNavCheckboxNationalityClick);
 GENDER_EL.addEventListener("change", onNavRadioGenderClick);
 SORT_EL.addEventListener('input', onNavSortClick);
 FORM_RESET.addEventListener('click', onFormResetClick);
+FORM_OK.addEventListener('click', onFormOkClick);
 HEADER_BUTTON_EL.addEventListener('click', onHeaderButtonClick);

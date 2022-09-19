@@ -1,4 +1,36 @@
+.preloader {
+  position: fixed;
+  width: 80%;
+  right: 0;
+  top: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #95675be1;
+  z-index: 1000;
+}
 
+#preloader.hide-preloader {
+  animation: hidePreloader 1s;
+}
+#preloader.preloader-hidden {
+  display: none;
+}
+@keyframes hidePreloader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.loading img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
 .wrapper {
   position: relative;
   height: 100vh;
@@ -7,7 +39,7 @@
   overflow: hidden;
   background-color: #95675be1;
   overflow: auto;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 .header {
   position: fixed;
@@ -125,7 +157,10 @@
 }
 .nav__input-username:focus {
   border: 2px solid #95675b;
+  transition: 0.3s all linear;
+  transform: scale(1.05);
 }
+
 .nav__checkbox,
 .nav__radio {
   margin: 0px 0px 20px 0px;
@@ -142,7 +177,7 @@
   justify-content: center;
 }
 .nav__radio-sort {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 5px 0px;
 }
 .nav__checkbox-list {
 }
@@ -184,7 +219,6 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all linear 0.3s;
-  
 }
 .nav__checkbox-input:checked + .nav__checkbox-field::before,
 .nav__radio-input:checked + .nav__radio-field::before {
@@ -192,7 +226,6 @@
   transition: all linear 0.3s;
   background-color: #95675be1;
 }
-
 .nav__checkbox-text,
 .nav__radio-text {
   position: absolute;
@@ -206,41 +239,57 @@
   top: 17px;
   left: 12px;
 }
-.nav__form-reset {
-  display: block;
+.nav__buttons {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #95675b;
+  padding-top: 10px;
+}
+.nav__form-reset,
+.nav__form-ok {
   cursor: pointer;
   padding: 10px 30px;
-  background-color: #95675be1;
+  background-color: #c6a590;
   border-radius: 20px/20px;
   border: none;
   box-shadow: 2px 2px 5px #000;
   transition: 0.3s all linear;
-  margin: 0 auto;
 }
-.nav__input-username:hover,
+.nav__form-reset {
+  display: block;
+  margin: 0px 0px 0px 0px;
+}
+.nav__form-ok {
+  display: none;
+}
 .nav__form-reset:hover,
 .nav__checkbox-label:hover,
-.nav__radio-label:hover {
+.nav__radio-label:hover,
+.nav__form-ok:hover {
   opacity: 80%;
   transition: 0.3s all linear;
   transform: scale(1.05);
+}.nav__input-username:hover{
+  transition: 0.3s all linear;
+  transform: scale(1.05);
 }
-.nav__form-reset:active {
+.nav__form-reset:active,
+.nav__form-ok:active {
   transform: scale(1);
 }
-
 .main {
   position: absolute;
-  width: 80%;
+  width: 70%;
   top: 50px;
-  right: 0;
+  right: 5%;
+  justify-content: center;
+  margin: 0 auto;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
   padding: 20px 20px 70px 20px;
-  justify-content: center;
 }
- .no-results {
+.no-results {
   background: url(../img/no-results.png) 0 0/20% auto no-repeat;
   background-position: 50% 50%;
   height: 100%;
@@ -363,6 +412,9 @@
   color: rgb(70, 70, 70);
 }
 @media (max-width: 928px) {
+  .preloader {
+    width: 100%;
+  }
   .header {
     width: 100%;
     left: 0;
@@ -372,21 +424,40 @@
     padding: 14px;
   }
   .nav {
-    visibility: hidden;
+    position: absolute;
+    left: -100%;
+    transition: all linear 0.3s;
+    z-index: 100;
+    top: 50px;
+  }
+  .nav__form-ok {
+    display: block;
+    margin: 0px 5px 0px 0px;
+  }
+  .nav__form-reset {
+    display: block;
+    margin: 0px 0px 0px 5px;
   }
   .main {
     width: 100%;
+    right: 0;
   }
   .header__btn {
     visibility: visible;
   }
   .nav.visible {
-    visibility: visible;
+    position: fixed;
+    left: 0;
     top: 50px;
     width: 100%;
     height: 100%;
     z-index: 100;
+    transition: all linear 0.3s;
   }
+  .nav__filter,
+.nav__sort {
+  font-size: 20px;
+}
   .nav__checkbox-list {
     width: 80%;
     margin: 0 auto;
@@ -440,7 +511,7 @@
   }
   .friend__age {
     position: absolute;
-    top: 44px;
+    top: 54px;
     left: 84px;
     font-size: 12px;
   }

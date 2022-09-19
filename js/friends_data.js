@@ -19,7 +19,7 @@ function createFriends(data) {
 const FETCH_RETRY_COUNT = 5;
 function fetchFriends() {
     let limit = 0;
-    const url = 'https://randomuser.me/api/?seed=foobar&results=30&nat=us,dk,fr,gb,ua&inc=gender,name,email,dob,phone,picture,nat,registered';
+    const url = 'https://randomuser.me/api/?seed=foobar&results=40&nat=us,dk,fr,gb,ua&inc=gender,name,email,dob,phone,picture,nat,registered';
     async function run(resolve, reject) {
         try {
             const res = await fetch(url);

@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <div class="preloader loading" id="preloader">
+        <img src="./img/preloader.gif" alt="">
+    </div>
     <div class="wrapper">
         <header id="header" class="header">
             <div id="header__btn" class="header__btn">
@@ -83,16 +86,15 @@
                 <span class="nav__sort">Sort</span>
                 <div class="nav__radio-sort" id="nav__radio-sort">
                     <div class="nav__radio-sort">
-
                         <label class="nav__radio-label">
                             <input class="nav__radio-input" type="radio" name="sort" value="ageAZ">
                             <span class="nav__radio-field"></span>
-                            <span class="nav__radio-text">Age A-Z</span>
+                            <span class="nav__radio-text">Age min</span>
                         </label>
                         <label class="nav__radio-label">
                             <input class="nav__radio-input" type="radio" name="sort" value="ageZA">
                             <span class="nav__radio-field"></span>
-                            <span class="nav__radio-text">Age Z-A</span>
+                            <span class="nav__radio-text">Age max</span>
                         </label>
                         <label class="nav__radio-label">
                             <input class="nav__radio-input" type="radio" name="sort" value="nameAZ">
@@ -111,7 +113,10 @@
                         </label>
                     </div>
                 </div>
-                <button class="nav__form-reset" id="nav__form-reset" type="button">Reset</button>
+                <div class="nav__buttons">
+                    <button class="nav__form-ok" id="nav__form-ok" type="button">Ok</button>
+                    <button class="nav__form-reset" id="nav__form-reset" type="button">Reset</button>
+                </div>
             </form>
         </nav>
         <main id="main" class="main"></main>
