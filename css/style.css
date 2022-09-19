@@ -269,7 +269,8 @@
   opacity: 80%;
   transition: 0.3s all linear;
   transform: scale(1.05);
-}.nav__input-username:hover{
+}
+.nav__input-username:hover {
   transition: 0.3s all linear;
   transform: scale(1.05);
 }
@@ -292,7 +293,7 @@
 .no-results {
   background: url(../img/no-results.png) 0 0/20% auto no-repeat;
   background-position: 50% 50%;
-  height: 100%;
+  height: 90%;
   opacity: 0.7;
 }
 .friend {
@@ -455,9 +456,9 @@
     transition: all linear 0.3s;
   }
   .nav__filter,
-.nav__sort {
-  font-size: 20px;
-}
+  .nav__sort {
+    font-size: 20px;
+  }
   .nav__checkbox-list {
     width: 80%;
     margin: 0 auto;
@@ -465,7 +466,7 @@
   .no-results {
     background: url(../img/no-results.png) 0 0/50% auto no-repeat;
     background-position: 50% 50%;
-    height: 100%;
+    height: 90%;
     opacity: 0.6;
   }
 }
