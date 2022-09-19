@@ -15,11 +15,9 @@ const DEFAULT_SETTINGS = {
 
 function filterFriends({ friends, settings }) {
     let res = friends;
-
     if (settings.userName) {
         const friendNameInLowerCase = settings.userName.toLowerCase();
         res = res.filter(friend => friend.name.toLowerCase().indexOf(friendNameInLowerCase) === 0)
-
     }
     res = res.filter(friend => settings.nationalityList.includes(friend.nat))
     if (settings.gender !== EGenderFilter.all) {

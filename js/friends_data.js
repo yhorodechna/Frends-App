@@ -1,4 +1,3 @@
-
 let ALL_FRIENDS = []
 
 function createFriends(data) {
@@ -42,7 +41,6 @@ function fetchFriends() {
     })
 };
 
-
 async function initFriendsAsync({onFriendsLoaded}) {
     const { data, error } = await fetchFriends();
     if (data) {
@@ -54,4 +52,3 @@ async function initFriendsAsync({onFriendsLoaded}) {
         alert(error);
     }
 }
-

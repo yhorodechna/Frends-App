@@ -1,4 +1,3 @@
-
 const USER_NAME_EL = document.querySelector('#username');
 const NATIONALITY_EL = document.querySelector('#nav__checkbox');
 const GENDER_EL = document.querySelector('#nav__radio-gender');
@@ -23,7 +22,6 @@ const EGenderFilter = {
     male: 'male',
     female: 'female',
 }
-
 const ENationality = {
     UA: 'UA',
     US: 'US',
