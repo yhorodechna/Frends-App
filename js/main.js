@@ -52,7 +52,7 @@ function onSettingsChange({ settings }) {
 initFriendsAsync({
     onFriendsLoaded: ({ friends }) => {
         FRIENDS = friends;
-        if(FRIENDS){
+        if (FRIENDS) {
             PRELOADER_EL.classList.add('hide-preloader');
         }
         initSettings({

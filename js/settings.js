@@ -30,7 +30,9 @@ const ENationality = {
     GB: 'GB'
 }
 
-function onNavInputClick({ target }) {
+function onNavInputClick(event) {
+    const target = event.target;
+    event.preventDefault();
     SETTINGS.userName = target.value;
     ON_SETTINGS_CHANGE({ settings: SETTINGS })
 }
