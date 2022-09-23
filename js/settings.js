@@ -30,9 +30,7 @@ const ENationality = {
     GB: 'GB'
 }
 
-function onNavInputClick(event) {
-    const target = event.target;
-    event.preventDefault();
+function onNavInputClick({target}) {
     SETTINGS.userName = target.value;
     ON_SETTINGS_CHANGE({ settings: SETTINGS })
 }
@@ -100,6 +98,7 @@ function onFormOkClick({target}){
 }
 
 USER_NAME_EL.addEventListener('input', onNavInputClick);
+NAV_EL.addEventListener('submit', function (e) { e.preventDefault()});
 NATIONALITY_EL.addEventListener("change", onNavCheckboxNationalityClick);
 GENDER_EL.addEventListener("change", onNavRadioGenderClick);
 SORT_EL.addEventListener('input', onNavSortClick);
